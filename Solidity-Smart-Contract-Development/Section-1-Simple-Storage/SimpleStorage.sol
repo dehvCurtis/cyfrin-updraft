@@ -26,10 +26,11 @@ contract SimpleStorage {
     // dynamic array (grows and shrinks)
     Person[] public listOfPeople;
 
+    mapping(string => uint256) public nameToFavNumber;
+
     function addPerson(string memory _name, uint256 _favoriteNumber) public {
         listOfPeople.push(Person(_favoriteNumber, _name));
+        nameToFavNumber[_name] = _favoriteNumber;
     }
-
-
 }
 
